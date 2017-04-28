@@ -1,4 +1,3 @@
-(require '[clojure.core.match :refer [match]])
 
 (ns anagram.core)
 
@@ -7,11 +6,11 @@
 (update {8 ["abb"]} (reduce + (map {\a 2, \b 3} (seq "bab"))) conj "bab")
 
 (defn anagram
-  ([] 0)
  ([xy] (let [x (first xy)
-             y (rest xy) ] 
-           (reduce + (map {\a 2, \b 3} (seq x)) )
-            (anagram y)
-           )
+             y (rest xy)]
+           (println  x )
+            (if (not-empty y) (anagram y))
+            )
        )
- )
+)
+      
